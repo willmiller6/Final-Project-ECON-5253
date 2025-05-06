@@ -14,7 +14,7 @@ library(plm)
 # I used in this repository.
 
 # First, load it from the repo
-df_school <- read.csv("C:/Users/willy/OneDrive/Data Analytics/df_school.csv")
+df_school <- read.csv("Flutie_University.csv")
 
 view(df_school) # Take a quick look to make sure it loaded correctly
 
@@ -42,7 +42,7 @@ sum(is.na(df_school)) # Check for missing values - looks good!
 # so you can just load it from the repo and follow these steps to manipulate it
 # to be ready for analysis.
 
-Natty_df <- read.csv("C:/Users/willy/OneDrive/Data Analytics/Econometrics Project Natties Since 2014.csv")
+Natty_df <- read.csv("Flutie_Champs.csv")
 
 head(Natty_df) # Take a look at the data - this is too wide!
 
@@ -68,7 +68,7 @@ head(Natty_df) # Take a look at the data - this is much better!
 # We'll do the same thing for the Playoffs.
 # This next part is pretty repetitive.
 
-Playoffs_df <- read.csv("C:/Users/willy/OneDrive/Data Analytics/Econometrics Project Playoffs Since 2014.csv")
+Playoffs_df <- read.csv("Flutie_Playoffs.csv")
 
 # Elongating...
 Playoffs_df <- Playoffs_df %>% 
@@ -148,7 +148,6 @@ table_node <- page %>% html_element(".tableWidth") # got this with selector gadg
 Grad_data <- table_node %>% html_table(fill = TRUE)
 
 head(Grad_data) # preview - this is messy! Should be pretty easy to clean up, though.
-view(Grad_data) # Take a look at the data - this is a mess!
 # Let's just drop the first 8 rows and keep only the columns we need 
 Grad_data <- Grad_data[-c(1:8, 17, 60:77), -c(2:7, 17)]
 
@@ -218,11 +217,11 @@ for (year in 2014:2023) {
   ap_poll<- bind_rows(ap_poll, table)
 }
 
-view(ap_poll) # Take a look at the data - this is a mess!
+view(ap_poll) # Take a look at the data
 
 
 # lets do some cleaning
-view(ap_poll) # Take a look at the data - this is a mess!
+
 # first, lets remove some columns, rename some others, and convert one more
 ap_poll <- ap_poll %>% 
     select(-c("Rank...2", "Rank...3", "Conf", "Rec", , "CP", "Last Week")) %>% # select columns
@@ -266,7 +265,7 @@ states <- c(state.abb)
 series_ids <- paste0("MEHOINUS", states, "A672N")
 
 # Create lookup table
-state_series <- tibble::tibble(
+state_series <- tibble(
   state = states,
   series_id = series_ids
 )
@@ -301,17 +300,16 @@ state_income_data <- state_income_data %>%
 # comments in detail...
 
 # Create a lookup table from state.abb and state.name
-state_lookup <- tibble::tibble(
+state_lookup <- tibble(
   state = state.abb,
   state_name = state.name
 )
 
-# Join your income data with the lookup
+# Join income data with the lookup
 state_income_named <- state_income_data %>%
   left_join(state_lookup, by = "state")
 
 # Now overwrite the state column with the state_name column
-
 state_income_data$State <- state_income_named$state_name
 
 # And rename the value column to "Income"
@@ -327,7 +325,7 @@ head(state_income_data) # Take a look at the data - this looks good!
 # This took a while but it works great!
 
 # Load the lookup table
-lookup_table <- read.csv("C:/Users/willy/OneDrive/Documents/Flutie_Lookup_Table.csv")
+lookup_table <- read.csv("Flutie_Lookup_Table.csv")
 
 # Lets open this up to take a look at it
 view(lookup_table)
@@ -412,8 +410,6 @@ lookup_table <- lookup_table %>%
   mutate(SCHOOL = str_trim(SCHOOL), Team = str_trim(Team), State = str_trim(str_squish(State)))
 
 
-view(Natty_df)
-
 # Going to start with the school and football data here because they both have
 # observations for the same years and schools.
 # Again, I'm going to do the pro-style one-liner here.
@@ -450,7 +446,6 @@ df_final$log.Total.Applicants <- log(df_final$Total.Applicants)
 df_final <- df_final %>%
   select(Team, Year, Champion, Playoffs, Top10, Top25, Wins, Grads, Income, 
          Tuition.and.Fees, Avg.Faculty.Salary, Total.Applicants, log.Total.Applicants)
-?pdata.frame
 
 view(df_final) # One final look - yup!
 
