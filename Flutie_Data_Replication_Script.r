@@ -456,5 +456,3 @@ view(df_final) # One final look - yup!
 
 # We have successfully replicated the data from the paper using the tools learned
 # in ECON 5253 - Data Science for Economists!
-
-write.csv(df_final, "C:/Users/willy/OneDrive/Data Analytics/Flutie_Replication_Data.csv", row.names = FALSE)
