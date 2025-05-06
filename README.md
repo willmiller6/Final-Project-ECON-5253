@@ -19,4 +19,4 @@ This script is quite straightforward to run. Simply install the following packag
 install.packages(c("tidyverse", "plm", "stargazer", "kableExtra", "patchwork"))
 ```
 
-To run the script on your local machine, simply download it and run it from start to finish, and it will automate the complilation of all figures and tables included in the data.
+To run the script on your local machine, simply download it (and the associated dataframe) before running it from start to finish, and it will automate the complilation of all figures and tables included in the data.
