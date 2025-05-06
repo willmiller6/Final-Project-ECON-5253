@@ -1,0 +1,302 @@
+\documentclass[12pt,english]{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=1in,bottom=1in,left=1in,right=1in,marginparwidth=1.75cm]{geometry}
+\usepackage[authoryear]{natbib}
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=false, allcolors=black]{hyperref}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+
+\usepackage{setspace}
+\doublespacing
+
+\begin{singlespace}
+\title{Reexamining the Flutie Effect in the CFP Era: A Dynamic Panel Approach\thanks{I thank Dr. Samantha Johnson and Dr. Ibrahim Kekec for their invaluable comments.}}
+\end{singlespace}
+
+\author{William Miller\thanks{University of Oklahoma Department of Economics. Email:~\href{mailto:willmiller@ou.edu}{willmiller@ou.edu}}}
+
+\begin{document}
+\maketitle
+\begin{singlespace}
+\begin{abstract}
+On the final play of the now famous football game between Boston College and Miami, BC quarterback Doug Flutie threw a miraculous touchdown pass to lift the Eagles over the Hurricanes, etching his name in the college football history books and propelling his team into the spotlight. The surge in applications received by Boston College in the subsequent months was dubbed the ``Flutie Effect,” and in the years since, a rich body of literature has emerged to study the impact of college football success on overall university growth. It is known that winning a national championship can boost applications, and I seek to investigate whether a similar surge of applications results from making the College Football Playoff. My results indicate that being ranking in the final week of the Associated Press Top 25 poll in the prior season is associated with an approximate 4-5\% increase in applications received by a school, but that elite levels of success—including a top-10 ranking, a playoff berth, and even a national championship win—do not carry with them statistically significant increases in applications to a school. Once the ``blue blood" teams that dominated the CFP era are removed, however, winning a national championship appears to become a significant factor in university growth, leading to a 14.8\% - 17.1\% increase in applications, but making the playoff remains insignificant. These results indicate that simply making the college football playoffs has an insignificant effect on university growth. 
+\end{abstract}
+\end{singlespace}
+
+\section{Introduction}
+
+American universities are in a constant state of competition. They grapple for position and prestige on national rankings lists, poach each other’s professors, compete for grant funding, struggle for the attention of students around the world on social media and in advertising, and perhaps most obviously, battle it out on the gridiron. According to \citet{CFBHistory}, American football has been part of university life since the era of the civil war. It started small, recreational, and low stakes, but \citet{ncaa_finances} estimates that it has since become a 15-billion-dollar industry. 
+
+While college football can already feel inescapable at some universities, and as \citet{Williams24} notes, it only stands to grow going forward in the wake of many landmark court rulings on player compensation from the past few years. As rules begin to change around the ability of student athletes to sign multi-million-dollar name, image, and likeness (NIL) endorsement deals—and now the potential ability of universities to directly compensate their athletes through large revenue sharing funds—the impact of college sports in general, and college football in particular, on university life comes into even sharper focus. An \cite{On3NIL} claims that any universities see opportunities to leverage large alumni donation networks and endorsement deals from local businesses to recruit the top high school athletes to their schools. The opportunity for athletic departments here is clear, but will the wider university benefit?
+
+Conventional wisdom\textemdash and much of the empirical evidence\textemdash says this benefit will be shared. After all, many universities are nationally known for having dominant football programs. It is hypothesized that universities with stronger football programs tend to attract more attention from students, leading to more applications. If this is true, we would expect to see programs that win more to have higher rates of applications to their schools. The distribution of total applicants by win total can be seen in Figure 1, indicating a weak but positive association. This plot tells nothing of the causal pathways, however, as one could very easily claim that schools with the money to spend large sums of money on athletic programs also have the money to advertise outside of athletics.
+
+
+In this paper, I seek to test this piece of conventional wisdom in the context of the four-team college football playoff, or the CFP. The NCAA adopted this format in 2014 (with the first playoffs happening in January of 2015) in an attempt to formalize the selection of the national champion and avoid the annual controversy associated with their previous selection process, which \citet{staples14} has discussed. If having a successful college football season increases the national profile of a university, it is only natural to assume that making the official playoffs and winning an indisputable college football national championship would maximize this effect. While other papers have examined this question in other contexts, my unique contribution is in the estimation of the impact of a college football playoff appearance on the size of a school’s applicant pool. 
+
+\section{Literature Review}
+In the fall of 1984, Boston College quarterback Doug Flutie threw a miraculous 48-yard touchdown to his receiver and roommate, Gerard Phelan, to lift the BC Eagles over the Miami Hurricanes, as \citet{eskenazi1984} originally reported for the New York Times. This game, often remembered as the “Miracle in Miami,” has been called “Boston College’s greatest advertising campaign” because, over the next two academic years, applications to Boston College rose by over 30\%, as \citet{silverthorn13} reports. Scholars now call this association between football success and university growth the ``Flutie Effect”\footnote{Or the ``Flutie Factor,” depending on who you ask.}.
+
+In the four decades since Flutie's legacy-making play, researchers have attempted to estimate the strength and size of the relationship between college football success and national university profile. \citet{mccormick} were the first to investigate this, and they found that membership in a “big time” athletic conference was associated with a modest increase in SAT scores. This study was limited in its empirical strategy, however, as OLS estimated on a single school year cross section cannot accurately capture the year-over-year changes in applications that need to be incorporated in order to fully understand this relationship. Despite its methodological issues, this paper inspired many more scholars to investigate this question, producing some very compelling results. 
+
+\citet{Murphy1994} leverage a fixed-effects design and find that within-conference football winning percentage is positively associated with an increase in the number of applicantions received by a school. \citet{pope2009} find that football and basketball success (measured as finishing in the top-20) boosted the number of applicants received by schools. They also found this effect to be greater for public than for private schools, and that this effect was significant for students across the SAT distribution, allowing universities to be more selective with the composition of their incoming freshmen classes as a result of their successful sports campaigns. \citet{chung} finds similar results, although he noted that students with lower-than-average SAT scores are more impacted by football success than students with higher-than-average SAT scores, indicating a heterogeneity of preferences among students. More recently, \citet{caudill} find that applicant pools shrink after schools eliminate their football programs. \citet{eggers2021} also find that participation in upset games increases the number of applicants received by a university for both winners and losers.  
+
+There is also some evidence of the inverse in this relationship, sometimes called the ``Anti-Flutie Effect.” Notably, \citet{cormier} find that receiving a bowl ban—a kind of NCAA sanction on universities for athletic malfeasance—increased a university’s acceptance rate and reduce their US News Peer Ranking. \citet{eggers2019} also find that a bowl ban reduces the number of applications received by schools.
+
+In light of all of these findings, there is a clear empirical link between football performance and university profile, at least as far as perspective students are concerned, but very little has been written about the four-team college football playoff. I attempt to fill this empirical gap in what follows. 
+
+\section{Data}
+
+To accomplish my goal, I leverage a novel panel to estimate a dynamic model that includes university-level institutional, state, and athletic data collected for 127 of the 134 universities that currently participate in the Division I Football Bowl Subdivision of NCAA college football from the 2014-15 season to the 2021-22 season. Many previous papers in this literature use every NCAA Division I university, but I believe this is an incorrect strategy, as only teams with Football Bowl Subdivision (FBS) membership are eligible for the playoffs or the national championship\footnote{The remaining schools compete in the Football Championship Subdivision, or FCS, which selects its champion separately.}. 
+
+Informed by the literature, I include controls for average faculty salary and total tuition and fees from the \citet{NCES}, number of high school diplomas awarded in the state the school resides in collected from \citet{NCES}, median household income collected from \citet{fred}, data on college football rankings from \citet{college_poll}, an online repository of historic college sports ranking polls, and data on the college football playoffs and national championship wins from \citet{cfp_history}. The summary statistics for my data can be seen in Tables 1 and 2, with Table 1 containing institutional summary statistics and Table 2 containing football summary statistics. 
+
+\section{Methods}
+
+To estimate the relationship between college football success and the number of applications received by a school, I opt for an AR(1) model estimated using Difference GMM, a dynamic panel estimation technique that is generally attributed to \citet{arellano_bond}. This approach is designed to address the endogeneity concerns that arise when including a lagged dependent variable in a panel data model. While many papers in this literature avoid using lags of the dependent variable in their models, I find that the number of applications a school receives is highly persistent over time. When estimating a fixed effects model with the identical specification to the Difference GMM model used in this analysis (with the omission of the first lag term, of course), the resulting Breusch-Godfrey test for serial correlation of order up to 1 returned compelling evidence ($\text{p-value}=2.2\mathrm{e}{-16}$) that the standard errors are, in fact, autocorrelated. Additionally, as is visible in Tables 3 and 5 presenting results below, the AR(1) and AR(2) tests of first and second order autocorrelation suggested by \citet{arellano_bond} provide compelling evidence that the number of applications received by a school is autocorrelated and can be remedied using Difference GMM.
+
+I also argue that, in addition to the econometric reasons presented to justify the use of an AR(1) model, there are strong theoretical justifications as well. Dynamic panels are frequently used to model phenomena that experience growth that is directly dependent on past values. I suggest that this is a reasonable assumption for college application pool growth. First, I argue that students make their choices about which university to attend based, at least in part, on history and reputation. If a university has experienced a large boost of applications in the recent past, that might bolster their reputation, and that increased reputation could influence future students to apply as a direct result of their recent growth. Second, network effects are likely to play a role in college decision making. If a large number of students from a particular high school apply to a university, whether due to football success or other factors, the increased exposure they create for their peers can encourage more students from the same high school to apply as well. Both of these reinforcement mechanisms indicate strong temporal persistence in student application decisions which, together with the econometric evidence, justify the use of an AR(1) model. 
+
+To account for this strong temporal persistence, I include the first lag of the natural log of total applicants on the right-hand side of my equation. However, including a lagged dependent variable in a fixed effects model introduces Nickell bias, the the correlation between a lagged dependent variable included as a predictor and the error term of a model once the first-difference transformation is applied in panel models \citet{nickell81}. Nickell bias is particularly concerning in this case given the short time dimension of my panel (T=8) because Nickell bias is inversely proportional to T. The Difference GMM estimator corrects for this by using deeper lags of the dependent variable as instruments. Specifically, I use the second and third lags (uncollapsed) of the natural log of total applicants.
+
+The dependent variable in my model is the logarithm of total applicants to university $i$ in year $t$ ($\text{logApps}_{i,t}$). My primary independent variables of interest are $\text{Top25}_{i,t-1}$, $\text{Top10}_{i,t-1}$, $\text{Playoff}_{i,t-1}$, and $\text{Champion}_{i,t-1}$, which indicate whether a school was ranked in the AP Top 25 in the final poll week, ranked in the Top 10 in the final poll week, made the College Football Playoffs, or won the national championship, respectively, in the year preceding the application cycle in year $t$. The measures of football success were lagged because I expect the previous year’s football season ($t-1$) to impact the current year’s application cycle ($t$) because students are only able to incorporate full information about the concluded football seasons before they apply to a university and are limited to imperfect information about the current football season when choosing where to apply. A measure of wins was excluded because of the heterogeneous competition faced by different football teams, meaning a 6 win team in the SEC or Big 10 could actually be much better (and garner substantially more attention) than a 10 win team in the American Athletic Conference, for example. I estimate the main model with all of these variables included but also estimate 4 additional models in to isolate the effects of each level of success and avoid the high multicollinearity inherent to these variables by definition (i.e. a team cannot win the championship without competing in the playoffs, a team cannot make the playoffs without being ranked in the top 10, and a team cannot be in the top 10 without being ranked in the top 25).
+
+I also include a vector of controls ($\boldsymbol{X}$) for several factors that are known to affect application trends (measured in the current application year $t$ for each university $i$), including the logarithm of tuition and fees ($\text{logTuition}_{i,t}$), the logarithm of average faculty salary ($\text{logSalary}_{i,t}$), the logarithm of the number of high school diplomas awarded in the state the university is located in ($\text{logGrads}_{i,t}$), and the logarithm of average household income in the state the university is located in ($\text{logIncome}_{i,t}$). These controls are fairly standard in the literature, as noted by  \citet{pope2009}. The functional form of the main model specification is given by
+
+\begin{equation}
+\begin{aligned}
+    \text{logApps}_{i,t} &= \beta_1 \text{logApps}_{i,t-1} + \beta_2 \text{Top25}_{i,t-1} + \beta_3 \text{Top10}_{i,t-1} + \beta_4 \text{Playoffs}_{i,t-1} \\
+    &\quad + \beta_5 \text{Champion}_{i,t-1} + \boldsymbol{\gamma}\mathbf{X}_{i,t}  + \alpha_i + \varepsilon_{i,t}
+\end{aligned}
+\end{equation}
+
+where university fixed effects ($\alpha_i$) are eliminated through first differencing.
+
+\section{Findings}
+
+The main findings from an analysis on the full sample are presented in Table 3. These results indicate that the only statistically significant college football variable is $\text{Top25}_{i,t-1}$, suggesting that simply being ranked in the Associated Press Top 25 in the year prior increases the number of applications received by a university by around 4.1-4.7\%, ceteris paribus. In absolute terms, given the median number of applicants received by schools in this sample, this effect translates to receiving an estimated 940 additional applications per year on average just for being ranked.  
+
+Interestingly, these results do not provide any evidence for the idea that being ranked in the top 10, making the playoffs, or even winning the national championship have any statistically significant impact on the number of applications schools receive, even when each football variable is modeled independently to account for multicollinearity. This suggests that a baseline of success\textemdash simply being ranked\textemdash is in practice more meaningful than reaching an “elite” level of success like reaching the playoffs or winning the national title. One potentially compelling explanation for this is that the same four schools dominated college football between 2014-15 and 2021-2022. Alabama (7 playoff berths, 3 titles), Clemson (6 playoff berths, 2 titles), Ohio State (4 playoff berths, 1 title) and Oklahoma (4 playoff berths) together claimed nearly two-thirds of all available playoff spots and nearly three-quarters of all titles during this run. Table 4 contains information on university playoff and championship success. This suggests that making the playoffs or winning titles simply served to bolster the “blue blood” reputations of these historically dominant football powerhouses. Because these schools already have stellar football reputations, it is reasonable to assume that each additional win means less because students already associate them with football success.
+
+Another hypothesis that could explain this lack of significance is the idea that the marginal returns to football success diminish after a certain level. Because the Flutie Effect is usually explained through the increase in exposure received by a school, as in \citet{pope2014}, it may be safe to assume that simply being ranked generates enough buzz around a school’s athletic program to nudge students to apply, and that all success beyond that (including going to the playoffs) is associated with diminishing marginal returns on applicants.
+These results are rather striking, so I conduct a series of robustness checks to ensure the validity of my model. 
+
+First, the Difference GMM estimator makes the critical assumption that no second-order autocorrelation is present in the model. I conduct both first and second order tests for autocorrelation to validate this assumption. The AR(1) test indicated first-order autocorrelation ($\text{p-value}=0.011$), which is expected for a dynamic model, while the AR(2) test did not indicate any second-order autocorrelation ($\text{p-value}= 0.391$), suggesting that the specification is appropriate. 
+
+Next, I conduct the Sargan test to ensure the validity of my instruments. The results of this test was a failure to reject the null hypothesis ($\text{p-value}= 0.471$), indicating that my instrument selection (2nd and 3rd lag of $\text{logApps}$, uncollapsed) is likely valid. To ensure this is correct, I also reestimate the main model with different sets of IVs. The coefficients remain stable and significant with many different IV specifications, and Sargan’s test also remains insignificant for various specifications, indicating that this model is robust to changes in instrumental variables.
+
+I also consider the inclusion of time-fixed effects, accomplished in this model by adding indicator variables for each of the 8 years in my panel. When estimated only with university fixed effects, the Wald test on coefficients is highly statistically significant ($\chi^2(9) = 201.853$), with the coefficients reported above in Table 3. When the time indicators are included, Wald’s test returns as highly insignificant ($\chi^2(9) = 4.048$) and the same test on the time indicators returns as insignificant as well ($\chi^2(6) = 8.603$) indicating that both the coefficients and the time indicators failed to reach joint significance in this specification. Therefore, I excluded these time indicators because of their joint insignificance, and overall reduction in model performance, indicating possible over-control. A linear time trend was tested as well, but considering its overall variance inflation, the short length of my panel, and the presence of the Covid pandemic in the middle of my panel, it was excluded in the final specification.
+
+Finally, I reestimate these models without the top-4 schools mentioned before: Alabama, Clemson, Ohio State, and Oklahoma. Table 5 contains the results of the reestimation without the ``blue blood” universities that dominated this era of college football. The most notable result here is the newly significant independent variable\textemdash in this model, it appears that winning the national championship results in a 14.8\% - 17.1\% increase in applications to a school, ceteris paribus. This is equivalent to an additional 3,650 applications for the median school in the sample. This is an extremely large and practically significant effect, indicating that winning the national championship can result in a huge amount of interest to a university and thus an increase in students applying. Another interesting insight from this result is the lack of any significant coefficients on the Playoffs variable. This, along with the main modeling in Table 3, indicates that making the playoffs has no significant effect on student application decisions.
+
+The finding from this subgroup analysis is consistent with the literature and intuition in a way the result with the full model was not, but has a serious limitation: there were only two non-``blue blood" schools that managed to win a championship in this period. This extremely small sample size is rather concerning, but it does match with observational evidence, as is clear in Figure 3, which shows applications by year for LSU and Georgia with vertical lines demarcating their national championship campaigns. This Figure quite clearly shows a huge boost in applications for both schools in the application cycle immediately following their championship seasons, providing strong visual evidence to show the impact that level of attention can have for a university. Additionally, the assumptions of the Difference GMM estimator are again met. In the full model with all variables included, the Sargan test is highly insignificant ($\text{p-value} = 0.37$), the AR(1) test is highly significant ($\text{p-value}=0.003$), and the AR(2) test is highly insignificant ($\text{p-value}=0.919$). This should be interpreted with caution due to the highly limited sample size, but still results in compelling evidence that winning a national championship can have seismic effects on university recruiting efforts. 
+
+
+\section{Conclusion}
+
+The conclusions of this analysis are rather striking. My results suggest that making the College Football Playoff is an insignificant factor in a university's recruiting efforts. I believe this result can be attributed to diminishing marginal returns to elite level football success, but that effect begins to change when the top four teams from this era, which I refer to here as the ``blue blood" teams, are excluded. In this subsample, increase in applications resulting from winning a national championship becomes highly significant and quite large. This is evidence that the top schools ``crowded out" the rest of the field by collectively claiming so many of the playoff berths and championship wins. This makes perfect sense intuitively, as a student choosing to attend a university based on football reputation will already associate schools like Alabama\textemdash arguably the best college team of all time\textemdash with a winning football program, and will thus be less moved by individual accomplishments than they would for a school like Georgia winning their first title in over 40 years. As we approach a legal environment in which universities are emboldened to spend even more money than they already do on football, they should exercise prudence and caution in how they make these decisions, but at the same time acknowledge that a successful football season can dramatically boost their national profile and potentially supercharge their growth.
+
+
+\vfill
+\pagebreak{}
+\begin{spacing}{1.0}
+\bibliographystyle{jpe}
+\bibliography{Flutie.bib}
+\addcontentsline{toc}{section}{References}
+\end{spacing}
+
+\section*{Figures and Tables}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=17cm]{boxplotwinsvsapps.png}
+    \label{fig:winapps}
+\end{figure}
+
+\begin{table}
+  \centering 
+  \caption{Summary Statistics: Institutional Variables} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ 
+\hline \\[-1.8ex] 
+Total Applicants & 1,016 & 26,518.130 & 18,337.740 & 1,822 & 149,801 \\ 
+Tuition and Fees & 1,016 & 16,465.960 & 14,926.010 & 4,646 & 61,706 \\ 
+Average Faculty Salary & 1,016 & 96,878.570 & 22,514.990 & 41,346 & 206,400 \\ 
+High School Diplomas & 1,016 & 119,229.900 & 116,254.800 & 5,740 & 431,410 \\ 
+Household Income & 1,016 & 73,994.030 & 12,278.990 & 50,300 & 113,000 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+\end{table}
+
+\begin{table}[!htbp] \centering
+  \caption{Summary Statistics: Football Variables}
+  \label{}
+\begin{tabular}{@{\extracolsep{5pt}}lccccc}
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex]
+Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ 
+\hline \\[-1.8ex]
+Wins & 1,007 & 6.442 & 3.143 & 0 & 15 \\
+Top25 & 1,016 & 0.196 & 0.397 & 0 & 1 \\ 
+Top10 & 1,016 & 0.079 & 0.269 & 0 & 1 \\
+Playoffs & 1,016 & 0.031 & 0.175 & 0 & 1 \\ 
+Champion & 1,016 & 0.008 & 0.088 & 0 & 1 \\
+\hline \\[-1.8ex]
+\end{tabular}
+\end{table}
+
+\begin{table} \centering 
+  \caption{Full Sample} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{5}{c}{\textit{Dependent variable}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{logApps} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
+\hline \\[-1.8ex] 
+ $\text{logApps}_{t-1}$ & 1.624$^{**}$ & 0.723$^{***}$ & 0.713$^{***}$ & 0.714$^{***}$ & 0.712$^{***}$ \\ 
+  & (0.642) & (0.240) & (0.243) & (0.242) & (0.242) \\ 
+  & & & & & \\ 
+ $\text{Top25}_{t-1}$ & 0.047$^{**}$ & 0.041$^{**}$ &  &  &  \\ 
+  & (0.022) & (0.020) &  &  &  \\ 
+  & & & & & \\ 
+ $\text{Top10}_{t-1}$ & $-$0.031 &  & 0.010 &  &  \\ 
+  & (0.025) &  & (0.021) &  &  \\ 
+  & & & & & \\ 
+ $\text{Playoffs}_{t-1}$ & 0.006 &  &  & $-$0.001 &  \\ 
+  & (0.029) &  &  & (0.033) &  \\ 
+  & & & & & \\ 
+ $\text{Champion}_{t-1}$ & 0.011 &  &  &  & 0.032 \\ 
+  & (0.053) &  &  &  & (0.062) \\ 
+  & & & & & \\ 
+ $\text{logTuition}$ & $-$0.972$^{***}$ & $-$0.597$^{***}$ & $-$0.600$^{***}$ & $-$0.608$^{***}$ & $-$0.607$^{***}$ \\ 
+  & (0.314) & (0.171) & (0.172) & (0.169) & (0.169) \\ 
+  & & & & & \\ 
+ $\text{logSalary}$ & 0.051 & 1.418$^{***}$ & 1.456$^{***}$ & 1.462$^{***}$ & 1.467$^{***}$ \\ 
+  & (1.024) & (0.469) & (0.477) & (0.477) & (0.478) \\ 
+  & & & & & \\ 
+ $\text{logGrads}$ & $-$0.750 & $-$0.295 & $-$0.312 & $-$0.312 & $-$0.321 \\ 
+  & (0.464) & (0.361) & (0.360) & (0.360) & (0.358) \\ 
+  & & & & & \\ 
+ $\text{logIncome}$ & 0.087 & 0.091 & 0.087 & 0.088 & 0.086 \\ 
+  & (0.151) & (0.124) & (0.124) & (0.124) & (0.124) \\ 
+  & & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 1016 & 1016 & 1016 & 1016 & 1016 \\ 
+Universities & 127 & 127 & 127 & 127 & 127 \\
+Sargan Test & 0.471 & 0.467 & 0.471 & 0.471 & 0.469 \\
+AR(1) Test & 0.011$^{**}$ & 0.011$^{**}$ & 0.012$^{**}$ & 0.012$^{**}$ & 0.012$^{**}$ \\
+AR(2) Test & 0.391 & 0.379 & 0.344 & 0.343 & 0.353 \\
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+
+\begin{table}[!h]
+\centering
+\caption{Playoff Appearances and Championships by School}
+\begin{tabular}{p{6cm}p{3cm}p{3cm}}
+\toprule
+\textbf{School} & \textbf{Playoffs} & \textbf{Championships} \\
+\midrule
+\rowcolor{gray!10}\textbf{The University of Alabama} & 7 & 3 \\
+\addlinespace
+\textbf{Clemson University} & 6 & 2 \\
+\addlinespace
+\rowcolor{gray!10}\textbf{Ohio State University} & 4 & 1 \\
+\addlinespace
+\textbf{University of Oklahoma} & 4 & 0 \\
+\addlinespace
+\rowcolor{gray!10}\textbf{University of Georgia} & 2 & 1 \\
+\addlinespace
+\textbf{University of Notre Dame} & 2 & 0 \\
+\addlinespace
+\rowcolor{gray!10}\textbf{Louisiana State University} & 1 & 1 \\
+\addlinespace
+\textbf{Florida State University} & 1 & 0 \\
+\addlinespace
+\rowcolor{gray!10}\textbf{Michigan State University} & 1 & 0 \\
+\addlinespace
+\textbf{University of Cincinnati} & 1 & 0 \\
+\addlinespace
+\rowcolor{gray!10}\textbf{University of Michigan} & 1 & 0 \\
+\addlinespace
+\textbf{University of Oregon} & 1 & 0 \\
+\addlinespace
+\rowcolor{gray!10}\textbf{University of Washington} & 1 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp] \centering 
+  \caption{No ``Blue Blood" Teams} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{logApps} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
+\hline \\[-1.8ex] 
+ $\text{logApps}_{t-1}$ & 0.712$^{***}$ & 0.707$^{***}$ & 0.693$^{***}$ & 0.695$^{***}$ & 0.697$^{***}$ \\ 
+  & (0.242) & (0.242) & (0.244) & (0.243) & (0.242) \\ 
+  & & & & & \\ 
+ $\text{Top25}_{t-1}$ & 0.044$^{*}$ & 0.041$^{**}$ &  &  &  \\ 
+  & (0.023) & (0.020) &  &  &  \\ 
+  & & & & & \\ 
+ $\text{Top10}_{t-1}$ & $-$0.011 &  & 0.012 &  &  \\ 
+  & (0.026) &  & (0.020) &  &  \\ 
+  & & & & & \\ 
+ $\text{Playoffs}_{t-1}$ & $-$0.042 &  &  & $-$0.011 &  \\ 
+  & (0.046) &  &  & (0.051) &  \\ 
+  & & & & & \\ 
+ $\text{Champion}_{t-1}$ & 0.171$^{***}$ &  &  &  & 0.148$^{***}$ \\ 
+  & (0.054) &  &  &  & (0.032) \\ 
+  & & & & & \\ 
+ logTuition & $-$0.588$^{***}$ & $-$0.582$^{***}$ & $-$0.582$^{***}$ & $-$0.592$^{***}$ & $-$0.592$^{***}$ \\ 
+  & (0.181) & (0.172) & (0.173) & (0.170) & (0.172) \\ 
+  & & & & & \\ 
+ logSalary & 1.390$^{***}$ & 1.389$^{***}$ & 1.428$^{***}$ & 1.433$^{***}$ & 1.437$^{***}$ \\ 
+  & (0.456) & (0.462) & (0.471) & (0.471) & (0.467) \\ 
+  & & & & & \\ 
+ logGrads & $-$0.325 & $-$0.267 & $-$0.280 & $-$0.281 & $-$0.344 \\ 
+  & (0.362) & (0.366) & (0.366) & (0.365) & (0.361) \\ 
+  & & & & & \\ 
+ logIncome & 0.094 & 0.105 & 0.103 & 0.104 & 0.096 \\ 
+  & (0.127) & (0.127) & (0.125) & (0.126) & (0.125) \\ 
+  & & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 984 & 984 & 984 & 984 & 984 \\ 
+Universities & 123 & 123 & 123 & 123 & 123 \\
+Sargan Test & 0.592 & 0.566 & 0.573 & 0.572 & 0.596 \\
+AR(1) Test & 0.012$^{**}$ & 0.013$^{**}$ & 0.014$^{**}$ & 0.014$^{**}$ & 0.013$^{**}$ \\
+AR(2) Test & 0.443 & 0.406 & 0.371 & 0.372 & 0.387 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=17cm]{UGA_LSU_Apps.png}
+    \label{fig:NatGrow}
+\end{figure}
+
+\end{document}
